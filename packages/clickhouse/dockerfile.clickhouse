@@ -1,0 +1,22 @@
+FROM clickhouse/clickhouse-server:latest-alpine 
+
+# get environment variables from Railway
+ARG CLICKHOUSE_DB
+ARG CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT
+ARG CLICKHOUSE_PASSWORD
+ARG CLICKHOUSE_USER
+ARG PORT
+
+# set environment variables from Railway
+ENV CLICKHOUSE_DB=$CLICKHOUSE_DB
+ENV CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=$CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT
+ENV CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
+ENV CLICKHOUSE_USER=$CLICKHOUSE_USER
+ENV PORT=$PORT
+
+# copy over config files 
+COPY ./ch-config.xml /etc/clickhouse-server/config.d/main-config.xml
+COPY ./ch-user-config.xml /etc/clickhouse-server/users.d/main-user-config.xml
+
+# run the entrypoint 
+ENTRYPOINT ["/entrypoint.sh"]

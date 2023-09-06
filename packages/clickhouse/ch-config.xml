@@ -1,0 +1,25 @@
+<clickhouse>
+    <!-- should be 2 * NUM_CPU_CORES. Default 16 -->
+    <max_concurrent_queries>4</max_concurrent_queries>
+
+    <!-- maximum cache size set to 1gb. default is 5gb. -->
+    <mark_cache_size>1073741824</mark_cache_size>
+    
+    <!-- Stop all the unnecessary logging -->
+    <query_thread_log remove="remove"/>
+    <query_log remove="remove"/>
+    <text_log remove="remove"/>
+    <trace_log remove="remove"/>
+    <metric_log remove="remove"/>
+    <asynchronous_metric_log remove="remove"/>
+    <session_log remove="remove"/>
+    <part_log remove="remove"/>
+
+    <!-- merge tree  -->
+    <merge_tree>
+        <!-- default is 8192 -->
+        <merge_max_block_size>2048</merge_max_block_size>
+        <max_bytes_to_merge_at_max_space_in_pool>1073741824</max_bytes_to_merge_at_max_space_in_pool>
+        <number_of_free_entries_in_pool_to_lower_max_size_of_merge>0</number_of_free_entries_in_pool_to_lower_max_size_of_merge>
+    </merge_tree>
+</clickhouse>
