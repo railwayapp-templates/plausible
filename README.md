@@ -49,7 +49,7 @@ This template is made up of three "services":
   - Plausible Analytics is run via [a Docker image the Plausible Analytics team publishes to DockerHub](https://hub.docker.com/r/plausible/analytics). Railway makes deploying images from DockerHub [very easy](https://docs.railway.app/develop/services#docker-image).
 - [ClickHouse Database](https://clickhouse.com/): the analytics database.
   - ClickHouse is used to store Analytics data for Plausible Analytics. ClickHouse's architecture makes analytics data more efficient to query than PostgreSQL does, especially as data scales. This is likely why Plausible Analytics uses it for Analytics data. ([PostHog has a great article on this if you're interested in learning more.](https://posthog.com/blog/clickhouse-vs-postgres))
-  - ClickHouse is run via a custom dockerfile, some custom ClickHouse config to tune things up for Railway, and a `railway.json` file to [define deployment configuration for the service](https://docs.railway.app/deploy/config-as-code).
+  - ClickHouse is run via [a custom dockerfile](https://github.com/railwayapp-templates/plausible/blob/main/packages/clickhouse/dockerfile.clickhouse), some [custom ClickHouse config](https://github.com/railwayapp-templates/plausible/blob/main/packages/clickhouse/ch-user-config.xml) to tune things up for Railway, and a [`railway.json` file](https://github.com/railwayapp-templates/plausible/blob/main/packages/clickhouse/railway.json) to [define deployment configuration for the service](https://docs.railway.app/deploy/config-as-code).
 - [PostgreSQL Database](https://www.postgresql.org/): the users, settings, and metadata database
   - PostgreSQL is used to store user data, settings, and metadata for Plausible Analytics.
   - PostgreSQL is ran as one of [Railway's one-click database services](https://docs.railway.app/develop/services#database-services) and is just a standard PostgreSQL database.
@@ -64,7 +64,7 @@ If you'd like to customize your instance of Plausible Analytics, I would recomme
 
 ## Feedback
 
-If you experience any issues or have any feedback at all, [you can create a GitHub issue here](https://github.com/MykalMachon/railway-plausible/issues)
+If you experience any issues or have any feedback at all, [you can create a GitHub issue here](https://github.com/railwayapp-templates/plausible/issues)
 
 ### Known issues
 
