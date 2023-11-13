@@ -15,13 +15,8 @@ See [the Plausible Analytics docsite](https://plausible.io/docs) for a more in-d
 1. Click the "Deploy on Railway" button above, or [click here](https://railway.app/template/mzYEXO?referralCode=IFlm92)
 2. Follow the setup steps in Railway
    - For information on the "optional" variables in the template, [see "Optional Variables" below](#optional-variables).
-3. Monitor your services as they come up
-   - If the Plausible Analytics service is provisioned before the ClickHouse service, you have to re-set the environment variables that reference the ClickHouse service.
-     - Once the ClickHouse service is up, navigate to the Plausible Analytics service, and select the "Variables" tab.
-     - Find and click the "edit" button on the `CLICKHOUSE_DATABASE_URL` environment variable.
-     - Re-save the variable without changing the contents.
-     - This should trigger a redeploy with the proper environment variables.
-4. Setup your websites with Plausible analytics
+3. Monitor your services as they come up; wait until they're all up. 
+4. Setup your websites with Plausible Analytics.
    1. Navigate to the domain for your Plausible Analytics service.
    2. Follow the prompts to create an account on the service
    3. Follow the prompts to set up tracking on your website.
@@ -68,8 +63,4 @@ If you experience any issues or have any feedback at all, [you can create a GitH
 
 ### Known issues
 
-- When the Plausible Analytics service is provisioned before the ClickHouse service, you have to re-set the environment variables that reference the ClickHouse service.
-  - Once the ClickHouse service is up, navigate to the Plausible Analytics service, and select the "Variables" tab.
-  - Find and click the "edit" button on the `CLICKHOUSE_DATABASE_URL` environment variable.
-  - Re-save the variable without changing the contents.
-  - This should trigger a redeploy with the proper environment variables.
+None right now! 
